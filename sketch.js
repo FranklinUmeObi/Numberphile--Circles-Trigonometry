@@ -13,9 +13,9 @@ function setup() {
   y = 250;
 
   orb = 25;
-  num = 20;
+  num = 10;
 
-  slider = createSlider(2, 16, 8, 1);
+  slider = createSlider(2, num, 5, 1);
   slider.position(50, 50);
   slider.style("width", "200px");
 }
