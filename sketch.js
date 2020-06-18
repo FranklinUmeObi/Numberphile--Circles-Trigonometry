@@ -6,7 +6,7 @@ let orb;
 
 let num;
 function setup() {
- canvas = createCanvas(800,500);
+  canvas = createCanvas(800, 500);
   time = 0;
   diameter = 400;
   x = 400;
@@ -16,8 +16,8 @@ function setup() {
   num = 20;
 
   slider = createSlider(2, 16, 8, 1);
-  slider.position(50,50);
-  slider.style('width', '200px');
+  slider.position(50, 50);
+  slider.style("width", "200px");
 }
 
 function draw() {
@@ -26,10 +26,10 @@ function draw() {
   num = slider.value();
 
   textSize(25);
-  textFont('Helvetica');
-   fill(255);
-   noStroke()
-   text("Move the slider to change the number of balls", 170, 470, 800, 500);
+  textFont("Helvetica");
+  fill(255);
+  noStroke();
+  text("Move the slider to change the number of balls", 170, 470, 800, 500);
 
   time += 0.02;
 }
@@ -48,28 +48,25 @@ function drawCircles() {
   noFill();
   ellipse(x, y, diameter, diameter);
 
-
-
   let da = (PI * 2) / num;
   let a = 0;
 
   stroke(255);
   strokeWeight(2);
 
-//Draw lines
+  //Draw lines
   let b = 0;
-  for (var i=0; i< num*2; i++){
-       line(x,y,x+cos(b)*(x - radius), y+sin(b)*(x - radius));
-       b+= da/2;
-   }
+  for (var i = 0; i < num * 2; i++) {
+    line(x, y, x + cos(b) * (x - radius), y + sin(b) * (x - radius));
+    b += da / 2;
+  }
 
-//Draw orbs
+  //Draw orbs
   for (var i = 0; i < num; i++) {
-
-    let r = 255 -(14 * i)
-    let g = 255 -(29 * i)
-    let b = 255 -(24 * i)
-    fill(r,g,b);
+    let r = 255 - 14 * i;
+    let g = 255 - 29 * i;
+    let b = 255 - 24 * i;
+    fill(r, g, b);
 
     ellipse(
       x + cos(a) * sin(time + (i * PI) / num) * (x - radius),
@@ -80,8 +77,4 @@ function drawCircles() {
 
     a += da / 2;
   }
-
-
-
-
 }
